@@ -1,0 +1,17 @@
+site_name: LazyCS50 Docs
+
+theme:
+  name: "material"
+
+plugins:
+  - mkdocstrings
+
+handlers:
+       python:
+          setup_commands:
+            - import sys
+            - sys.path.append("validators")
+nav:
+  - index.md
+  - How-To Guides: how-to-guides.md
+  - Reference: reference.md
