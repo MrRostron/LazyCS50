@@ -23,14 +23,14 @@ Download the code from this Github repository and place the `lazy50/` folder in 
     |
     |__ your_script.py
 
-Inside of `your_script.py` you can now import the `validate_ext()`, `validate_args()`, `re_prompt_numerical` and `re_prompt_alpha()` functions from the  `lazy50.lazy50` module:
+Inside of `your_script.py` you can now import the `validate_ext()`, `validate_args()`, `rprompt_numerical` and `rprompt_alpha()` functions from the  `lazy50.lazy50` module:
 
     # your_script.py
-    from lazy50.lazy50 import re_prompt_alpha, re_prompt_numerical
+    from lazy50.lazy50 import rprompt_alpha, rprompt_numerical
 
     def main():
-        name = re_prompt_alpha("Name: ")
-        age = re_prompt_numerical("Age: ", nrange=(0,125))
+        name = rprompt_alpha("Name: ")
+        age = rprompt_numerical("Age: ", nrange=(0,125))
         print(f"Name: {name}, Age: {age}")
     
     if __name__ == "__main__":
