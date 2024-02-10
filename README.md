@@ -30,7 +30,7 @@ Inside of `your_script.py` you can now import the `validate_ext()`, `validate_ar
 
     def main():
         name = rprompt_alpha("Name: ")
-        age = rprompt_numerical("Age: ", nrange=(0,125))
+        age = rprompt_numerical("Age: ", range=(0,125))
         print(f"Name: {name}, Age: {age}")
     
     if __name__ == "__main__":
