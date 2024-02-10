@@ -46,9 +46,9 @@ def validate_args(min_args: int, max_args: int, all_args: list) -> bool:
         bool: Returns True if arguments passed are within defined range.
     """
     if len(all_args) < min_args:
-        raise InvalidNumberArgs(f"Too few command-line arguments. {all_args} passed.")
+        raise InvalidNumberArgs(f"Too few command-line arguments. \n{' '.join(all_args)} passed.")
     elif len(all_args) > max_args:
-        raise InvalidNumberArgs(f"Too many command-line arguments. {all_args} passed.")
+        raise InvalidNumberArgs(f"Too many command-line arguments. \n{' '.join(all_args)} passed.")
     else:
         return True
     
@@ -102,7 +102,7 @@ def rprompt_numerical(prompt: str, range: tuple=None, float=False) -> int|float:
                 if re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", user_input):
                     return user_input
  
-# Function called by re_prompt_numerical()        
+# Function called by rprompt_numerical()        
 def __in_range(user_input: int|float, range: tuple) -> int|float:
     if float(user_input) < range[0]:
         return False
