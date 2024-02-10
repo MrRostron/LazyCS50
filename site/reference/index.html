@@ -253,6 +253,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lazy50.lazy50.re_prompt_alpha" class="md-nav__link">
+    <span class="md-ellipsis">
+      re_prompt_alpha
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy50.lazy50.re_prompt_numerical" class="md-nav__link">
+    <span class="md-ellipsis">
+      re_prompt_numerical
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -303,6 +321,24 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lazy50.lazy50.re_prompt_alpha" class="md-nav__link">
+    <span class="md-ellipsis">
+      re_prompt_alpha
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lazy50.lazy50.re_prompt_numerical" class="md-nav__link">
+    <span class="md-ellipsis">
+      re_prompt_numerical
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -332,7 +368,7 @@
 <a id="lazy50.lazy50.validate_args"></a>
   <div class="doc doc-contents first">
   
-      <p>Defines min and max number args</p>
+      <p>Defines min and max number args, any list type object may be passed.</p>
 
 
 
@@ -412,7 +448,7 @@
     <tbody>
         <tr>
           <td>
-                <code>TypeError</code>
+                <code>InavlidNumberArgs</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -440,7 +476,7 @@
           </td>
           <td>
             <div class="doc-md-description">
-              <p>Returns True if arguments passed are within range.</p>
+              <p>Returns True if arguments passed are within defined nrange.</p>
             </div>
           </td>
         </tr>
@@ -473,7 +509,7 @@
 <span class="normal">51</span>
 <span class="normal">52</span>
 <span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">validate_args</span><span class="p">(</span><span class="n">min_args</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_args</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">all_args</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Defines min and max number args</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Defines min and max number args, any list type object may be passed.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">        &gt;&gt;&gt; validate_args(min_args=3, max_args=3, all_args=[&#39;foo.py&#39;, &#39;arg1&#39;, &#39;arg2&#39;])</span>
@@ -485,15 +521,15 @@
 <span class="sd">        all_args (list): List containing arguments</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        TypeError: raises error if incorrect numbr of args passed</span>
+<span class="sd">        InavlidNumberArgs: raises error if incorrect numbr of args passed</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        bool: Returns True if arguments passed are within range.</span>
+<span class="sd">        bool: Returns True if arguments passed are within defined nrange.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_args</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Too few command-line arguments&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">InvalidNumberArgs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Too few command-line arguments. </span><span class="si">{</span><span class="n">all_args</span><span class="si">}</span><span class="s2"> passed.&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_args</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Too many command-line arguments&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">InvalidNumberArgs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Too many command-line arguments. </span><span class="si">{</span><span class="n">all_args</span><span class="si">}</span><span class="s2"> passed.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
@@ -577,7 +613,7 @@
     <tbody>
         <tr>
           <td>
-                <code>FileNotFoundError</code>
+                <code>InavlidFileExtension</code>
           </td>
           <td>
             <div class="doc-md-description">
@@ -649,7 +685,7 @@
 <span class="sd">        exts (list): list of valid extesions.</span>
 
 <span class="sd">    Raises:</span>
-<span class="sd">        FileNotFoundError: raise error if file extension not valid.</span>
+<span class="sd">        InavlidFileExtension: raise error if file extension not valid.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        str: the extension of passed file.</span>
@@ -660,7 +696,287 @@
     <span class="p">):</span>
         <span class="k">return</span> <span class="n">ext</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="s2">&quot;File not Valid&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">InvalidFileExtension</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">fname</span><span class="si">}</span><span class="s2"> not Valid&quot;</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<a id="lazy50.lazy50.re_prompt_alpha"></a>
+  <div class="doc doc-contents first">
+  
+      <p>Re-prompt user until valid alphabectical reponse is given.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>prompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>prompt to be displayed.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>alphanum</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>allows user to include numerical chars. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+<th>Name</th>        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+<td><code>str</code></td>          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>user's input</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>lazy50/lazy50.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">re_prompt_alpha</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">alphanum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Re-prompt user until valid alphabectical reponse is given.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        prompt (str): prompt to be displayed.</span>
+<span class="sd">        alphanum (bool, optional): allows user to include numerical chars. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        str: user&#39;s input</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">user_response</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="c1"># only allow alphabectic chars and one whitespace between chars.</span>
+        <span class="k">if</span> <span class="n">alphanum</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^([a-zA-Z]+[\s]?[a-zA-Z]+)+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user_response</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Allow alphanumeric and a single whitespace between chars.</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user_response</span>
+</code></pre></div></td></tr></table></div>
+          </details>
+  </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<a id="lazy50.lazy50.re_prompt_numerical"></a>
+  <div class="doc doc-contents first">
+  
+      <p>Re-prompt user until valid response is given can be in a range, float or int.</p>
+
+
+
+  <p><strong>Parameters:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Default</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td><code>prompt</code></td>
+          <td>
+                <code>str</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>prompt to be displayed.</p>
+            </div>
+          </td>
+          <td>
+              <em>required</em>
+          </td>
+        </tr>
+        <tr>
+          <td><code>nrange</code></td>
+          <td>
+                <code>tuple</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>return user input if value is in a nrange eg, nrange=(1,10). Defaults to None.</p>
+            </div>
+          </td>
+          <td>
+                <code>None</code>
+          </td>
+        </tr>
+        <tr>
+          <td><code>float</code></td>
+          <td>
+                <code>bool</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>retun user input if floating point numbers are passed. Defaults to False.</p>
+            </div>
+          </td>
+          <td>
+                <code>False</code>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+  <p><strong>Returns:</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>
+                <code>int | float</code>
+          </td>
+          <td>
+            <div class="doc-md-description">
+              <p>int|float: user's input</p>
+            </div>
+          </td>
+        </tr>
+    </tbody>
+  </table>
+
+          <details class="quote">
+            <summary>Source code in <code>lazy50/lazy50.py</code></summary>
+            <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 77</span>
+<span class="normal"> 78</span>
+<span class="normal"> 79</span>
+<span class="normal"> 80</span>
+<span class="normal"> 81</span>
+<span class="normal"> 82</span>
+<span class="normal"> 83</span>
+<span class="normal"> 84</span>
+<span class="normal"> 85</span>
+<span class="normal"> 86</span>
+<span class="normal"> 87</span>
+<span class="normal"> 88</span>
+<span class="normal"> 89</span>
+<span class="normal"> 90</span>
+<span class="normal"> 91</span>
+<span class="normal"> 92</span>
+<span class="normal"> 93</span>
+<span class="normal"> 94</span>
+<span class="normal"> 95</span>
+<span class="normal"> 96</span>
+<span class="normal"> 97</span>
+<span class="normal"> 98</span>
+<span class="normal"> 99</span>
+<span class="normal">100</span>
+<span class="normal">101</span>
+<span class="normal">102</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">re_prompt_numerical</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">nrange</span><span class="p">:</span> <span class="nb">tuple</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Re-prompt user until valid response is given can be in a range, float or int.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        prompt (str): prompt to be displayed.</span>
+<span class="sd">        nrange (tuple, optional): return user input if value is in a nrange eg, nrange=(1,10). Defaults to None.</span>
+<span class="sd">        float (bool, optional): retun user input if floating point numbers are passed. Defaults to False.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        int|float: user&#39;s input</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">user_response</span> <span class="o">=</span> <span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="c1"># Return input if value is within a nrange.</span>
+        <span class="k">if</span> <span class="n">nrange</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[+-]?([0-9]*[.])?[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">__in_range</span><span class="p">(</span><span class="n">user_response</span><span class="p">,</span> <span class="n">nrange</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">user_response</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Allow only integers.    </span>
+            <span class="k">if</span> <span class="nb">float</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">user_response</span>
+            <span class="c1"># Allow floating point numbers.</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[+-]?([0-9]*[.])?[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">user_response</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>

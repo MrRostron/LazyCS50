@@ -312,18 +312,19 @@
 |
 |-- lazy50/
 |   |-- __init__.py
+    |--exceptions.py
 |   |__lazy50.py
 |
 |__ your_script.py
 </code></pre>
-<p>Inside of <code>your_script.py</code> you can now import the <code>validate_ext()</code> and <code>validate_args()</code> functions from the  <code>lazy50.lazy50</code> module:</p>
+<p>Inside of <code>your_script.py</code> you can now import the <code>validate_ext()</code>, <code>validate_args()</code> and other functions from the  <code>lazy50.lazy50</code> module:</p>
 <pre><code># your_script.py
 from lazy50.lazy50 import validate_args
 
 if validate_args(min_args=3, max_args=3, all_args=sys.argv):
     print("Valid number of args.")
 </code></pre>
-<p>You are now able to validate arguments in one line of code which returns a Bool or raises an error.</p>
+<p>We are able to validate a list type object such as sys.argv to contain a given min and max num of arguments.</p>
 <pre><code># your_script.py
 from lazy50.lazy50 import validate_ext
 
@@ -331,7 +332,19 @@ valid_extensions = ["jpg", "jpeg", "png"]
 if validate_ext(fname=sys.argv[1], exts=valid_extensions):
     return True
 </code></pre>
-<p>You can now pass a file and list of extensions to the <code>validate_ext()</code> and return the extension if valid.</p>
+<p>We can pass a file and list of extensions to the <code>validate_ext()</code> and return the extension if valid.</p>
+<pre><code># your_script.py
+from lazy50.lazy50 import re_prompt_alpha, re_prompt_numerical
+
+def main():
+    name = re_prompt_alpha("Name: ")
+    age = re_prompt_numerical("Age: ", nrange=(0,125))
+    print(f"Name: {name}, Age: {age}")
+
+if __name__ == "__main__":
+    main()
+</code></pre>
+<p>Here we can re-prompt the user for a name that will accept a first and last name providing all chars are alphabectical. We can also ask the user for there age which will re-prompt if it falls out of the given range.</p>
 
 
 
