@@ -35,11 +35,11 @@ We are able to validate a list type object such as sys.argv to contain a given m
 We can pass a file and list of extensions to the `validate_ext()` and return the extension if valid.
 
     # your_script.py
-    from lazy50.lazy50 import re_prompt_alpha, re_prompt_numerical
+    from lazy50.lazy50 import rprompt_alpha, rprompt_numerical
 
     def main():
-        name = re_prompt_alpha("Name: ")
-        age = re_prompt_numerical("Age: ", nrange=(0,125))
+        name = rprompt_alpha("Name: ")
+        age = rprompt_numerical("Age: ", nrange=(0,125))
         print(f"Name: {name}, Age: {age}")
     
     if __name__ == "__main__":

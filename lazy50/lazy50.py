@@ -43,7 +43,7 @@ def validate_args(min_args: int, max_args: int, all_args: list) -> bool:
         InavlidNumberArgs: raises error if incorrect numbr of args passed
 
     Returns:
-        bool: Returns True if arguments passed are within defined nrange.
+        bool: Returns True if arguments passed are within defined range.
     """
     if len(all_args) < min_args:
         raise InvalidNumberArgs(f"Too few command-line arguments. {all_args} passed.")
@@ -52,7 +52,7 @@ def validate_args(min_args: int, max_args: int, all_args: list) -> bool:
     else:
         return True
     
-def re_prompt_alpha(prompt: str, alphanum=False) -> str:
+def rprompt_alpha(prompt: str, alphanum=False) -> str:
     """Re-prompt user until valid alphabectical reponse is given.
     
     Args:
@@ -63,50 +63,50 @@ def re_prompt_alpha(prompt: str, alphanum=False) -> str:
         str: user's input
     """
     while True:
-        user_response = str(input(f'{prompt}')).strip()
+        user_input = str(input(f'{prompt}')).strip()
         # only allow alphabectic chars and one whitespace between chars.
         if alphanum == False:
-            if re.match(r"^([a-zA-Z]+[\s]?[a-zA-Z]+)+$", user_response):
-                return user_response
+            if re.match(r"^([a-zA-Z]+[\s]?[a-zA-Z]+)+$", user_input):
+                return user_input
         else:
             # Allow alphanumeric and a single whitespace between chars.
-            if re.match(r"^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$", user_response):
-                return user_response
+            if re.match(r"^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$", user_input):
+                return user_input
             
 
-def re_prompt_numerical(prompt: str, nrange: tuple=None, float=False) -> int|float:
+def rprompt_numerical(prompt: str, range: tuple=None, float=False) -> int|float:
     """Re-prompt user until valid response is given can be in a range, float or int.
 
     Args:
         prompt (str): prompt to be displayed.
-        nrange (tuple, optional): return user input if value is in a nrange eg, nrange=(1,10). Defaults to None.
+        range (tuple, optional): return user input if value is in a range eg, range=(1,10). Defaults to None.
         float (bool, optional): retun user input if floating point numbers are passed. Defaults to False.
 
     Returns:
         int|float: user's input
     """
     while True:
-        user_response = (input(f'{prompt}')).strip()
-        # Return input if value is within a nrange.
-        if nrange is not None:
-            if re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", user_response):
-                if __in_range(user_response, nrange):
-                    return user_response
+        user_input = input(f'{prompt}').strip()
+        # Return input if value is within a range.
+        if range is not None:
+            if re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", user_input):
+                if __in_range(user_input, range):
+                    return user_input
         else:
             # Allow only integers.    
             if float == False:
-                if re.match(r"^[0-9]+$", user_response):
-                    return user_response
-            # Allow floating point numbers.
+                if re.match(r"^[0-9]+$", user_input):
+                    return user_input
+            # Allow floating point numbers and integers.
             else:
-                if re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", user_response):
-                    return user_response
+                if re.match(r"^[+-]?([0-9]*[.])?[0-9]+$", user_input):
+                    return user_input
  
 # Function called by re_prompt_numerical()        
-def __in_range(user_input: int|float, nrange: tuple) -> int|float:
-    if float(user_input) < nrange[0]:
+def __in_range(user_input: int|float, range: tuple) -> int|float:
+    if float(user_input) < range[0]:
         return False
-    elif float(user_input) > nrange[1]:
+    elif float(user_input) > range[1]:
         return False
     else:
         return user_input
