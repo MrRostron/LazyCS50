@@ -254,18 +254,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lazy50.lazy50.re_prompt_alpha" class="md-nav__link">
+  <a href="#lazy50.lazy50.rprompt_alpha" class="md-nav__link">
     <span class="md-ellipsis">
-      re_prompt_alpha
+      rprompt_alpha
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lazy50.lazy50.re_prompt_numerical" class="md-nav__link">
+  <a href="#lazy50.lazy50.rprompt_numerical" class="md-nav__link">
     <span class="md-ellipsis">
-      re_prompt_numerical
+      rprompt_numerical
     </span>
   </a>
   
@@ -322,18 +322,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lazy50.lazy50.re_prompt_alpha" class="md-nav__link">
+  <a href="#lazy50.lazy50.rprompt_alpha" class="md-nav__link">
     <span class="md-ellipsis">
-      re_prompt_alpha
+      rprompt_alpha
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#lazy50.lazy50.re_prompt_numerical" class="md-nav__link">
+  <a href="#lazy50.lazy50.rprompt_numerical" class="md-nav__link">
     <span class="md-ellipsis">
-      re_prompt_numerical
+      rprompt_numerical
     </span>
   </a>
   
@@ -476,7 +476,7 @@
           </td>
           <td>
             <div class="doc-md-description">
-              <p>Returns True if arguments passed are within defined nrange.</p>
+              <p>Returns True if arguments passed are within defined range.</p>
             </div>
           </td>
         </tr>
@@ -524,12 +524,12 @@
 <span class="sd">        InavlidNumberArgs: raises error if incorrect numbr of args passed</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        bool: Returns True if arguments passed are within defined nrange.</span>
+<span class="sd">        bool: Returns True if arguments passed are within defined range.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_args</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">InvalidNumberArgs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Too few command-line arguments. </span><span class="si">{</span><span class="n">all_args</span><span class="si">}</span><span class="s2"> passed.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">InvalidNumberArgs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Too few command-line arguments. </span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span><span class="si">}</span><span class="s2"> passed.&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_args</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="n">InvalidNumberArgs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Too many command-line arguments. </span><span class="si">{</span><span class="n">all_args</span><span class="si">}</span><span class="s2"> passed.&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">InvalidNumberArgs</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Too many command-line arguments. </span><span class="se">\n</span><span class="si">{</span><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">all_args</span><span class="p">)</span><span class="si">}</span><span class="s2"> passed.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
@@ -709,7 +709,7 @@
 
 
 
-<a id="lazy50.lazy50.re_prompt_alpha"></a>
+<a id="lazy50.lazy50.rprompt_alpha"></a>
   <div class="doc doc-contents first">
   
       <p>Re-prompt user until valid alphabectical reponse is given.</p>
@@ -803,7 +803,7 @@
 <span class="normal">71</span>
 <span class="normal">72</span>
 <span class="normal">73</span>
-<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">re_prompt_alpha</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">alphanum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rprompt_alpha</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">alphanum</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Re-prompt user until valid alphabectical reponse is given.</span>
 
 <span class="sd">    Args:</span>
@@ -814,15 +814,15 @@
 <span class="sd">        str: user&#39;s input</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">user_response</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="c1"># only allow alphabectic chars and one whitespace between chars.</span>
         <span class="k">if</span> <span class="n">alphanum</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^([a-zA-Z]+[\s]?[a-zA-Z]+)+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">user_response</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^([a-zA-Z]+[\s]?[a-zA-Z]+)+$&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user_input</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Allow alphanumeric and a single whitespace between chars.</span>
-            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
-                <span class="k">return</span> <span class="n">user_response</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^([a-zA-Z0-9]+[\s]?[a-zA-Z0-9]+)+$&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">user_input</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
@@ -835,7 +835,7 @@
 
 
 
-<a id="lazy50.lazy50.re_prompt_numerical"></a>
+<a id="lazy50.lazy50.rprompt_numerical"></a>
   <div class="doc doc-contents first">
   
       <p>Re-prompt user until valid response is given can be in a range, float or int.</p>
@@ -868,13 +868,13 @@
           </td>
         </tr>
         <tr>
-          <td><code>nrange</code></td>
+          <td><code>range</code></td>
           <td>
                 <code>tuple</code>
           </td>
           <td>
             <div class="doc-md-description">
-              <p>return user input if value is in a nrange eg, nrange=(1,10). Defaults to None.</p>
+              <p>return user input if value is in a range eg, range=(1,10). Defaults to None.</p>
             </div>
           </td>
           <td>
@@ -950,33 +950,33 @@
 <span class="normal">100</span>
 <span class="normal">101</span>
 <span class="normal">102</span>
-<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">re_prompt_numerical</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">nrange</span><span class="p">:</span> <span class="nb">tuple</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="p">:</span>
+<span class="normal">103</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">rprompt_numerical</span><span class="p">(</span><span class="n">prompt</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">range</span><span class="p">:</span> <span class="nb">tuple</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">float</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="o">|</span><span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Re-prompt user until valid response is given can be in a range, float or int.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        prompt (str): prompt to be displayed.</span>
-<span class="sd">        nrange (tuple, optional): return user input if value is in a nrange eg, nrange=(1,10). Defaults to None.</span>
+<span class="sd">        range (tuple, optional): return user input if value is in a range eg, range=(1,10). Defaults to None.</span>
 <span class="sd">        float (bool, optional): retun user input if floating point numbers are passed. Defaults to False.</span>
 
 <span class="sd">    Returns:</span>
 <span class="sd">        int|float: user&#39;s input</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">user_response</span> <span class="o">=</span> <span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="c1"># Return input if value is within a nrange.</span>
-        <span class="k">if</span> <span class="n">nrange</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[+-]?([0-9]*[.])?[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
-                <span class="k">if</span> <span class="n">__in_range</span><span class="p">(</span><span class="n">user_response</span><span class="p">,</span> <span class="n">nrange</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="n">user_response</span>
+        <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prompt</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="c1"># Return input if value is within a range.</span>
+        <span class="k">if</span> <span class="nb">range</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[+-]?([0-9]*[.])?[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">__in_range</span><span class="p">(</span><span class="n">user_input</span><span class="p">,</span> <span class="nb">range</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">user_input</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Allow only integers.    </span>
             <span class="k">if</span> <span class="nb">float</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="n">user_response</span>
-            <span class="c1"># Allow floating point numbers.</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">user_input</span>
+            <span class="c1"># Allow floating point numbers and integers.</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[+-]?([0-9]*[.])?[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_response</span><span class="p">):</span>
-                    <span class="k">return</span> <span class="n">user_response</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^[+-]?([0-9]*[.])?[0-9]+$&quot;</span><span class="p">,</span> <span class="n">user_input</span><span class="p">):</span>
+                    <span class="k">return</span> <span class="n">user_input</span>
 </code></pre></div></td></tr></table></div>
           </details>
   </div>
