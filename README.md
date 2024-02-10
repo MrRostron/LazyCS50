@@ -23,13 +23,20 @@ Download the code from this Github repository and place the `lazy50/` folder in 
     |
     |__ your_script.py
 
-Inside of `your_script.py` you can now import the `validate_ext()` and `validate_args()` functions from the  `lazy50.lazy50` module:
+Inside of `your_script.py` you can now import the `validate_ext()`, `validate_args()`, `re_prompt_numerical` and `re_prompt_alpha()` functions from the  `lazy50.lazy50` module:
 
-    # your_script.py1
-    from lazy50.lazy50 import validate_args
+    # your_script.py
+    from lazy50.lazy50 import re_prompt_alpha, re_prompt_numerical
 
-    if validate_args(min_args=3, max_args=3, all_args=['foo.py', 'arg1', 'arg2']):
-        print("Valid number of args.")
+    def main():
+        name = re_prompt_alpha("Name: ")
+        age = re_prompt_numerical("Age: ", nrange=(0,125))
+        print(f"Name: {name}, Age: {age}")
+    
+    if __name__ == "__main__":
+        main()
+
+Re-prompt the user for a name that will accept a first and last name providing all chars are alphabectical. We can also ask the user for there age which will re-prompt if it falls out of the given range.
 
 *Documentation created following https://realpython.com/python-project-documentation-with-mkdocs/*
 
